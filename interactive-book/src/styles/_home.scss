@@ -1,0 +1,41 @@
+@import "./shared.scss";
+
+.home-container {
+    @include centerChilds;
+
+    flex-direction: column;
+    overflow-y: hidden;
+
+    .title {
+        padding-top: 25px;
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .book-container {
+        padding-top: 25px;
+        $bookWidth: 60vw;
+        $bookHeight: 60vh;
+        position: relative;
+        min-width: $bookWidth;
+        overflow-y: hidden;
+        @include centerChilds;
+
+        @include sm{
+            $bookWidth: 90vw;
+            min-width: $bookWidth;
+        }
+
+
+        .page {
+            max-width: calc($bookWidth/2);
+            max-height: $bookHeight;
+            img {
+                user-select: none;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+}
