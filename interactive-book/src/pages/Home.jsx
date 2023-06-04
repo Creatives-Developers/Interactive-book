@@ -1,24 +1,14 @@
-import React from "react";
+import React, { useCallback } from "react";
 import HTMLFlipBook from "react-pageflip";
 import { getLocalImageByName } from "../util";
 import pageFilpSoundFile from "../assets/sounds/page-flip.mp3";
+import { metaData } from "../util/PagesData";
 function Home() {
   const pageFileSound = new Audio(pageFilpSoundFile);
-  const images = [
-    "bookImages/pic-01.jpg",
-    "bookImages/pic-02.jpg",
-    "bookImages/pic-03.jpg",
-    "bookImages/pic-04.jpg",
-    "bookImages/pic-05.jpg",
-    "bookImages/pic-06.jpg",
-    "bookImages/pic-07.jpg",
-    "bookImages/pic-08.jpg",
-    "bookImages/pic-09.jpg",
-    "bookImages/pic-10.jpg",
-  ];
-  const flipHandler = () => {
+
+  const flipHandler = useCallback(() => {
     pageFileSound.play();
-  };
+  }, [pageFileSound]);
   return (
     <section className="home-container">
       <h1 className="title">Allergan Magazine</h1>
@@ -38,9 +28,26 @@ function Home() {
           usePortrait
           renderOnlyPageLengthChange
         >
-          {images.map((imgSrc) => (
-            <div key={imgSrc} className="page">
-              {<img src={getLocalImageByName(imgSrc)} alt={imgSrc} />}
+          {metaData.map(({ id, img, interactions }) => (
+            <div key={id} className="page">
+              {interactions?.map(
+                ({ className, style, action, href = "#", text = "" }) => (
+                  <a
+                    href={href}
+                    key={className}
+                    className={className}
+                    style={style}
+                    onClick={(e) => {
+                      if (action) {
+                        action();
+                      }
+                    }}
+                  >
+                    {text}
+                  </a>
+                )
+              )}
+              {<img src={getLocalImageByName(img)} alt={img} />}
             </div>
           ))}
         </HTMLFlipBook>

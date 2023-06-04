@@ -1,27 +1,28 @@
 @import "./shared.scss";
 
+$bookWidth: 55vw;
+$bookHeight: 75vh;
+
 .home-container {
     @include centerChilds;
-
     flex-direction: column;
     overflow-y: hidden;
+    // max-height: 100dvh;
 
     .title {
-        padding-top: 25px;
-        font-size: 3rem;
+        margin: 25px 0;
+        font-size: 2rem;
         text-align: center;
     }
 
     .book-container {
         padding-top: 25px;
-        $bookWidth: 60vw;
-        $bookHeight: 75vh;
         position: relative;
         min-width: $bookWidth;
         overflow-y: hidden;
         @include centerChilds;
 
-        @include sm{
+        @include sm {
             $bookWidth: 90vw;
             min-width: $bookWidth;
         }
@@ -30,6 +31,20 @@
         .page {
             max-width: calc($bookWidth/2);
             max-height: $bookHeight;
+            // position: relative;
+
+            a {
+                position: absolute;
+
+                &.e1,
+                &.e2 {
+                    min-height: 50px;
+                    min-width: 50px;
+                    z-index: 100;
+                }
+            }
+
+
             img {
                 user-select: none;
                 width: 100%;
