@@ -17,10 +17,11 @@ $bookHeight: 75vh;
     }
 
     .book-container {
-        padding-top: 25px;
+        padding-top: 4vh;
         position: relative;
         min-width: $bookWidth;
         @include centerChilds;
+        
 
         @include sm {
             $bookWidth: 90vw;
@@ -30,7 +31,8 @@ $bookHeight: 75vh;
 
         .page {
             max-width: calc($bookWidth/2);
-            max-height: $bookHeight;
+            height: $bookHeight;
+            max-height: 710px;
             position: absolute;
             overflow:hidden;
 
@@ -75,6 +77,10 @@ $bookHeight: 75vh;
 
             &.empty-page{
                 background: $gray-dark-color;
+            }
+
+            &.ligt-back{
+                background:$gray-light-color
             }
         }
     }

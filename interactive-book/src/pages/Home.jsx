@@ -62,7 +62,7 @@ function Home() {
               )}
               {img && <img src={getLocalResource(img)} alt={img} />}
               {video && (
-                <video autoPlay muted>
+                <video autoPlay muted loop>
                   <source src={getLocalResource(video)} type="video/mp4" />
                 </video>
               )}

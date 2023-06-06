@@ -1,11 +1,13 @@
 export const metaData = [
   {
     id: 1,
-    className:'empty-page'
+    className:'empty-page ',
+    
   },
   {
     id: 2,
-    video:'bookImages/intro.mp4'
+    video:'bookImages/intro.mp4',
+    className:'ligt-back'
   },
   { id: 3, img: `bookImages/pic-02.png` },
   { id: 4, img: `bookImages/pic-03.jpg` },
@@ -41,7 +43,7 @@ export const metaData = [
   { id: 10, img: `bookImages/pic-09.jpg` },
   { id: 11, img: `bookImages/pic-10.png` },
   {
-    id: 11,
+    id: 12,
     className:'empty-page'
   },
 ];
