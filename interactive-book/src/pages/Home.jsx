@@ -1,4 +1,4 @@
-import React, { useCallback,useState} from "react";
+import React, { useCallback, useState } from "react";
 import HTMLFlipBook from "react-pageflip";
 import { getLocalResource } from "../util";
 import pageFilpSoundFile from "../assets/sounds/page-flip.mp3";
@@ -6,7 +6,7 @@ import { metaData } from "../util/PagesData";
 import VideoControlIcon from "../assets/icons/video-control.png";
 import DiscardIcon from "../assets/icons/discard-icon.png";
 function Home() {
-  const [currentVideoSrc,setCurrentVideoSrc]=useState('')
+  const [currentVideoSrc, setCurrentVideoSrc] = useState("");
   const flipHandler = useCallback(() => {
     const pageFileSound = new Audio(pageFilpSoundFile);
     pageFileSound.play();
@@ -21,7 +21,7 @@ function Home() {
           size="stretch"
           autoSize
           onFlip={flipHandler}
-          showCover={true}
+          showCover={false}
           drawShadow={false}
           flippingTime={750}
           useMouseEvents={true}
@@ -30,22 +30,28 @@ function Home() {
           usePortrait
           renderOnlyPageLengthChange
         >
-          {metaData.map(({ id, img, interactions }) => (
-            <div key={id} className="page">
+          {metaData.map(({ id, className, img, video, interactions }) => (
+            <div key={id} className={`page ${className}`}>
               {interactions?.map(
-                ({ className, type, style, action=()=>{}, href = "#", text = "" }) => (
+                ({
+                  className,
+                  type,
+                  style,
+                  action = () => {},
+                  href = "#",
+                  text = "",
+                }) => (
                   <a
                     href={href}
                     key={className}
                     className={className}
                     style={style}
                     onClick={(e) => {
-                      e.stopPropagation()
+                      e.stopPropagation();
                       if (type === "video") {
-                        action(e,setCurrentVideoSrc);
+                        action(e, setCurrentVideoSrc);
                       }
                     }}
-                    
                   >
                     {text}
                     {type === "video" && (
@@ -54,17 +60,31 @@ function Home() {
                   </a>
                 )
               )}
-              {<img src={getLocalResource(img)} alt={img} />}
+              {img && <img src={getLocalResource(img)} alt={img} />}
+              {video && (
+                <video autoPlay muted>
+                  <source src={getLocalResource(video)} type="video/mp4" />
+                </video>
+              )}
             </div>
           ))}
         </HTMLFlipBook>
       </article>
-      <article className={`video-container ${currentVideoSrc?'visible':''}`} >
-        {currentVideoSrc&&<video autoPlay  controls>
-           <source src={getLocalResource(currentVideoSrc)} type="video/mp4"/>
-        </video>}
-        <button className="close-btn" onClick={()=>{setCurrentVideoSrc('')}}>
-          <img src={DiscardIcon} alt={'discard-video'}/>
+      <article
+        className={`video-container ${currentVideoSrc ? "visible" : ""}`}
+      >
+        {currentVideoSrc && (
+          <video autoPlay controls>
+            <source src={getLocalResource(currentVideoSrc)} type="video/mp4" />
+          </video>
+        )}
+        <button
+          className="close-btn"
+          onClick={() => {
+            setCurrentVideoSrc("");
+          }}
+        >
+          <img src={DiscardIcon} alt={"discard-video"} />
         </button>
       </article>
     </section>
