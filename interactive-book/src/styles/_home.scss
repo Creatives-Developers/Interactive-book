@@ -7,6 +7,7 @@ $bookHeight: 75vh;
     @include centerChilds;
     flex-direction: column;
     overflow-y: hidden;
+    position: relative;
     // max-height: 100dvh;
 
     .title {
@@ -36,11 +37,26 @@ $bookHeight: 75vh;
             a {
                 position: absolute;
 
-                &.e1,
-                &.e2 {
-                    min-height: 50px;
-                    min-width: 50px;
+                &.video-overlay {
                     z-index: 100;
+                    @include centerChilds;
+
+                    img {
+                        user-select: none;
+                        $dimensions: 75px;
+                        width: $dimensions;
+                        height: $dimensions;
+                        animation: heartbeat 1s ease-in-out infinite both;
+                        pointer-events: none;
+                    }
+
+                    &.small {
+                        img {
+                            $dimensions: 50px;
+                            width: $dimensions;
+                            height: $dimensions;
+                        }
+                    }
                 }
             }
 
@@ -53,4 +69,43 @@ $bookHeight: 75vh;
         }
     }
 
+
+    .video-container {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        z-index: -10;
+        transition: all 0.5s ease-in-out;
+        display:flex;
+        justify-content: center;
+        &.visible {
+            background: $black-overlay;
+            opacity: 1;
+            z-index: 10;
+        }
+
+
+      
+
+        video {
+            margin-top: 5dvh;
+            width: 80%;
+            min-width: 300px;
+            height: 90dvh;
+        }
+
+        button{
+            all:unset;
+            position: absolute;
+            $position:25px;
+            right: $position;
+            top:$position;
+            cursor: pointer;
+            img{
+                $dimensions:30px;
+                width: $dimensions;
+                height: $dimensions;
+            }
+        }
+    }
 }
