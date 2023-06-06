@@ -2,7 +2,6 @@ export const metaData = [
   {
     id: 1,
     className:'empty-page ',
-    
   },
   {
     id: 2,

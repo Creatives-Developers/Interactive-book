@@ -4,11 +4,11 @@ import { getLocalResource } from "../util";
 import pageFilpSoundFile from "../assets/sounds/page-flip.mp3";
 import { metaData } from "../util/PagesData";
 import VideoControlIcon from "../assets/icons/video-control.png";
-import DiscardIcon from "../assets/icons/discard-icon.png";
+import Video from "../components/Video";
 function Home() {
   const [currentVideoSrc, setCurrentVideoSrc] = useState("");
-  const flipHandler = useCallback(() => {
-    const pageFileSound = new Audio(pageFilpSoundFile);
+  const flipHandler = useCallback((e) => {
+   const pageFileSound = new Audio(pageFilpSoundFile);
     pageFileSound.play();
   }, []);
   return (
@@ -70,23 +70,10 @@ function Home() {
           ))}
         </HTMLFlipBook>
       </article>
-      <article
-        className={`video-container ${currentVideoSrc ? "visible" : ""}`}
-      >
-        {currentVideoSrc && (
-          <video autoPlay controls>
-            <source src={getLocalResource(currentVideoSrc)} type="video/mp4" />
-          </video>
-        )}
-        <button
-          className="close-btn"
-          onClick={() => {
-            setCurrentVideoSrc("");
-          }}
-        >
-          <img src={DiscardIcon} alt={"discard-video"} />
-        </button>
-      </article>
+      <Video
+        currentVideoSrc={currentVideoSrc}
+        setCurrentVideoSrc={setCurrentVideoSrc}
+      />
     </section>
   );
 }
