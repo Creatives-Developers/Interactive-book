@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/Interactive-book/static/css/main.c08786c6.css",
+    "main.js": "/Interactive-book/static/js/main.d2bc9d91.js",
+    "static/js/787.29ef0a0f.chunk.js": "/Interactive-book/static/js/787.29ef0a0f.chunk.js",
+    "static/media/video1.mp4": "/Interactive-book/static/media/video1.06264a02f277fed41cb3.mp4",
+    "static/media/intro.mp4": "/Interactive-book/static/media/intro.16e05838ba42c6064677.mp4",
+    "static/media/chart-animation.gif": "/Interactive-book/static/media/chart-animation.aac41c7e7f6fcdc9e3dd.gif",
+    "static/media/pic-05.jpg": "/Interactive-book/static/media/pic-05.1b96164dbd051dc438a7.jpg",
+    "static/media/pic-04.png": "/Interactive-book/static/media/pic-04.6fec91883f0b976bbeba.png",
+    "static/media/pic-06.jpg": "/Interactive-book/static/media/pic-06.f39ca44bd84b2aa95746.jpg",
+    "static/media/pic-03.jpg": "/Interactive-book/static/media/pic-03.d9c0f8520613699788a6.jpg",
+    "static/media/pic-08.jpg": "/Interactive-book/static/media/pic-08.9d792e68ffe0b5b7d4ac.jpg",
+    "static/media/pic-07.png": "/Interactive-book/static/media/pic-07.cdfcce4f8ddb18dafebb.png",
+    "static/media/pic-02.jpg": "/Interactive-book/static/media/pic-02.82fdbfcd4b6e443af6c2.jpg",
+    "static/media/pic-02.png": "/Interactive-book/static/media/pic-02.7952f2a64cd095da939a.png",
+    "static/media/pic-01.jpg": "/Interactive-book/static/media/pic-01.678b4557c3b5bc15047f.jpg",
+    "static/media/pic-08.png": "/Interactive-book/static/media/pic-08.5bee6d5a2225427f8897.png",
+    "static/media/pic-09.jpg": "/Interactive-book/static/media/pic-09.54b4c05c222950514846.jpg",
+    "static/media/pic-10.png": "/Interactive-book/static/media/pic-10.e31d28752df60e0d488a.png",
+    "static/media/page-flip.mp3": "/Interactive-book/static/media/page-flip.35bca9c7e462379850e0.mp3",
+    "index.html": "/Interactive-book/index.html",
+    "main.c08786c6.css.map": "/Interactive-book/static/css/main.c08786c6.css.map",
+    "main.d2bc9d91.js.map": "/Interactive-book/static/js/main.d2bc9d91.js.map",
+    "787.29ef0a0f.chunk.js.map": "/Interactive-book/static/js/787.29ef0a0f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c08786c6.css",
+    "static/js/main.d2bc9d91.js"
+  ]
+}
